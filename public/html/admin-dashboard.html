@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Admin-dashboard</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="icon" href="/img/favicon.svg" type="image/svg">
+  <link rel="stylesheet" href="css/admin-dashboard.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/header-footer.css">
+</head>
+
+<body>
+  <div id="header-placeholder"></div>
+  <template id="template-user-row">
+    <tr id="user-id">
+      <td class="user-row-name">
+        <input type="text" class="profile-form name-input" required disabled>
+        <button type="button" class="profile-button name-edit"><i class="material-icons">edit</i></button>
+      </td>
+      <td class="user-row-email">
+        <input type="text" class="profile-form email-input" required disabled>
+        <button class="profile-button email-edit"><i class="material-icons">edit</i></button>
+      </td>
+
+      <td class="user-row-password">
+        <input type="password" class="profile-form password-input" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required disabled>
+        <button class="profile-button password-edit"><i class="material-icons">edit</i></button>
+      </td>
+      <td>
+        <button class="profile-button delete-user"><i class="material-icons">delete</i></button>
+      </td>
+    </tr>
+  </template>
+  <template id="template-new-user-row">
+    <tr>
+      <td><input type="text" id="new-user-name" required></td>
+      <td><input type="text" id="new-user-email" required></td>
+      <td><input type="password" id="new-user-password" required></td>
+      <td>
+        <button class="profile-button" onclick="addNewUser()"><i class="material-icons">add</i></button>
+      </td>
+    </tr>
+  </template>
+  <div class="navbar">
+    <div class="navbar_left">
+      <span class="app-name">Dashboard</span>
+    </div>
+    <div class="navbar_right">
+      <div class="profile">
+        <div class="icon_wrap">
+          <img src="img/profile.svg" alt="profile_pic">
+          <span class="name">John Doe</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="profile_dd">
+          <ul class="profile_ul">
+            <li><a class="logout" href="#"><span class="picon"><i class="fas fa-sign-out-alt"></i></span>Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-lg">
+    <div class="table-responsive">
+      <div class="table-wrapper">
+        <div class="table-title">
+          <div class="row">
+            <div class="col-sm-4">
+              <h2><b>Users</b></h2>
+            </div>
+            <div class="col-sm-4" id="dashboard-status-message"></div>
+            <div class="col-sm-4">
+              <button type="button" class="btn btn-info add-new" onclick="addNewUserRow()" id="addnew"><i class="fa fa-plus"></i> Add New</button>
+            </div>
+          </div>
+        </div>
+        <table class="table table-bordered" id="data_table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Password</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="user-table-body">
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div id="footer-placeholder"></div>
+  <script src="js/header-footer.js"></script>
+  <script src="js/admin-dashboard.js"></script>
+</body>
+
+</html>
